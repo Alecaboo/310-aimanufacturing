@@ -1,0 +1,249 @@
+{UTF-8}
+"# Of Robot Workers"=A FUNCTION OF("# Of Robot Workers",Robot Investment) ~~|
+"# Of Robot Workers"=
+	~	Robots
+	~		|
+
+Accident Factor=0.3-Safety Investment*0.02
+	~	Injuries/Risk
+	~		|
+
+Cost=Costs from accidents+Workforce Size*29
+	~	Dollars
+	~		|
+
+Cost per accident=A FUNCTION OF(Cost per accident) ~~|
+Cost per accident=
+	~	Dollars/Accident
+	~		|
+
+Costs from accidents=A FUNCTION OF(Costs from accidents,Cost per accident,TRIR) ~~|
+Costs from accidents=
+	~	Dollars
+	~		|
+
+Hours worked in Manufacturing=Hours worked per worker*Workforce Size
+	~	Hours
+	~		|
+
+Hours worked per worker=2000
+	~	Hours/Worker
+	~		|
+
+Injuries=Risks taken by humans*Accident Factor
+	~	Injuries
+	~		|
+
+Job Security=A FUNCTION OF(Job Security,"# Of Robot Workers") ~~|
+Job Security=
+	~	Magic Happy Points
+	~		|
+
+Market Conditon=A FUNCTION OF(Market Conditon) ~~|
+Market Conditon=
+	~	Dollars/Unit
+	~		|
+
+Production Investment  = A FUNCTION OF( Profit) ~~|
+Production Investment=
+	~	Dollars
+	~		|
+
+Profit= INTEG (Revenue-Cost,
+		8.246e+11)
+	~	Dollars
+	~		|
+
+Revenue  = A FUNCTION OF( Market Conditon,Throughput) ~~|
+Revenue=
+	~	Dollars
+	~		|
+
+Risk Factor=0.3
+	~	Risks/Task
+	~		|
+
+Risks taken by humans=(Total tasks-Tasks taken by robots)*Risk Factor
+	~	Risks
+	~		|
+
+Robot Investment  = A FUNCTION OF( Profit) ~~|
+Robot Investment=
+	~	Dollars
+	~		|
+
+Safety Investment  = A FUNCTION OF( Profit) ~~|
+Safety Investment=
+	~	Dollars
+	~		|
+
+Tasks taken by robots=A FUNCTION OF(Tasks taken by robots,"# Of Robot Workers") ~~|
+Tasks taken by robots=
+	~	Risks/Robot
+	~		|
+
+Throughput=A FUNCTION OF(Throughput,Total tasks) ~~|
+Throughput=
+	~	Units/Task
+	~		|
+
+Total tasks=A FUNCTION OF(Total tasks,Production Investment) ~~|
+Total tasks=
+	~	Tasks
+	~		|
+
+TRIR= INTEG ((Injuries/Hours worked in Manufacturing)*200000,
+		2.8)
+	~	Injuries/Worker
+	~		|
+
+Worker Safety=A FUNCTION OF(Worker Safety,TRIR) ~~|
+Worker Safety=
+	~	Magic Happy Points
+	~		|
+
+Worker Satisfaction=A FUNCTION OF(Worker Satisfaction,Job Security,Worker Safety) ~~|
+Worker Satisfaction= INTEG (Job Security+Worker Safety,
+		)
+	~	Magic Happy Points
+	~		|
+
+Workforce Size=A FUNCTION OF(Workforce Size,"# Of Robot Workers") ~~|
+Workforce Size=302000
+	~	Workers
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,2
+10,1,TRIR,1259,558,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,2,48,1028,472,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,3,5,2,100,0,0,22,0,192,0,-1--1--1,,1|(1028,491)|
+1,4,5,1,4,0,0,22,0,192,0,-1--1--1,,3|(1028,551)|(1028,551)|(1120,551)|
+11,5,0,1028,511,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,6,Injuries,1080,511,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,7,48,1057,668,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,10,7,100,0,0,22,0,192,0,-1--1--1,,3|(1057,610)|(1057,610)|(1057,635)|
+1,9,10,1,4,0,0,22,0,192,0,-1--1--1,,3|(1270,610)|(1270,610)|(1270,597)|
+11,10,0,1163,610,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,11,Hours worked in Manufacturing,1163,644,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,Profit,1516,374,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,13,48,1802,374,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,14,16,12,100,0,0,22,0,192,0,-1--1--1,,1|(1616,374)|
+1,15,16,13,4,0,0,22,0,192,0,-1--1--1,,1|(1737,374)|
+11,16,0,1677,374,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,17,Cost,1677,408,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,18,48,1287,369,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,19,21,18,100,0,0,22,0,192,0,-1--1--1,,1|(1337,369)|
+1,20,21,12,4,0,0,22,0,192,0,-1--1--1,,1|(1429,369)|
+11,21,0,1383,369,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,22,Revenue,1383,403,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,23,Costs from accidents,1456,506,55,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,24,1,23,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+1,25,23,17,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,26,Cost per accident,1644,551,47,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,27,26,23,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,28,Workforce Size,1400,705,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,29,28,11,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,30,Hours worked per worker,1199,751,66,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,31,30,11,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,32,Accident Factor,1097,396,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,33,32,6,1,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(1142,469)|
+10,34,Risks taken by humans,850,380,60,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,35,34,6,1,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(1046,422)|
+10,36,Tasks taken by robots,844,247,57,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,37,36,34,0,0,45,0,1,192,0,251-2-7,|||0-0-0,1|(0,0)|
+10,38,Total tasks,649,265,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,39,38,34,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,40,Risk Factor,594,369,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,41,40,34,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,42,"# Of Robot Workers",822,91,53,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,43,42,36,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+10,44,Robot Investment,1027,127,48,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,45,44,42,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+1,46,42,28,5,0,45,0,1,192,0,251-2-7,|||0-0-0,3|(395,132)|(598,728)|(1456,842)|
+10,47,Safety Investment,1311,98,48,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,48,Production Investment,1465,140,60,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,49,48,38,5,0,43,0,1,192,0,17-128-2,|||0-0-0,2|(1256,-81)|(564,-86)|
+1,50,47,32,0,0,45,0,1,192,0,251-2-7,|||0-0-0,1|(0,0)|
+10,51,Worker Satisfaction,721,517,52,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,52,48,468,501,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,53,55,52,100,0,0,22,0,192,0,-1--1--1,,1|(468,509)|
+1,54,55,51,4,0,0,22,0,192,0,-1--1--1,,1|(624,509)|
+11,55,0,573,509,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,56,Job Security,573,543,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,57,48,729,679,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,58,60,57,100,0,0,22,0,192,0,-1--1--1,,1|(729,642)|
+1,59,60,51,4,0,0,22,0,192,0,-1--1--1,,1|(729,572)|
+11,60,0,729,607,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,61,Worker Safety,783,607,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,62,1,61,0,0,45,0,1,192,0,251-2-7,|||0-0-0,1|(0,0)|
+1,63,42,56,5,0,45,0,1,192,0,251-2-7,|||0-0-0,3|(326,79)|(116,459)|(486,643)|
+1,64,12,48,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+1,65,12,47,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+1,66,12,44,0,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(0,0)|
+1,67,28,17,1,0,43,0,1,192,0,17-128-2,|||0-0-0,1|(1794,600)|
+10,68,Throughput,1026,268,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,69,38,68,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,70,68,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,71,Market Conditon,1039,201,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,72,71,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+///---\\\
+:L<%^E!@
+5:Revenue
+19:100,0
+24:0
+25:0
+26:0
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
